@@ -33,7 +33,7 @@ const Main = () => {
                         {' '}
                         <div className={main.group}>
                             <input
-                                placeholder='name'
+                                placeholder='username'
                                 type='text'
                                 name='name'
                                 value={values.name}
