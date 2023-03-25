@@ -6,6 +6,7 @@ import socket from '../../utils/socket';
 const Chat = () => {
     const { search } = useLocation();
     const [params, setParams] = useState<LoginParams>();
+    const [state, setState] = useState<string[]>([]);
 
     useEffect(() => {
         const searchParams: LoginParams = Object.fromEntries(
@@ -14,6 +15,13 @@ const Chat = () => {
         setParams(searchParams);
         socket.emit('join', searchParams);
     }, [search]);
+
+    useEffect(() => {
+        socket.on('message', ({ data }) => {
+            setState((_state) => ({ ..._state, data }));
+        });
+    }, []);
+    console.log(state);
 
     return <div>Chat</div>;
 };
