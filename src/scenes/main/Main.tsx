@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IEnterRoom } from '../../interfaces/main.interface';
 import main from '../../styles/main.module.css';
-
-interface IEnterRoom {
-    name: string;
-    room: string;
-}
 
 const Main = () => {
     const [values, setValues] = useState<IEnterRoom>({
         name: '',
         room: '',
     });
+
+    // useEffect(() => {
+    //     return () => {
+    //         socket.removeAllListeners();
+    //     };
+    // }, []);
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         setValues({ ...values, [e.currentTarget.name]: e.currentTarget.value });
@@ -33,7 +35,7 @@ const Main = () => {
                         {' '}
                         <div className={main.group}>
                             <input
-                                placeholder='name'
+                                placeholder='username'
                                 type='text'
                                 name='name'
                                 value={values.name}
