@@ -1,6 +1,6 @@
 ## fancy-chat
 
-[https://fancychat-client.onrender.com](https://fancychat-client.onrender.com)
+[deploy link](https://fancychat-client.onrender.com)
 
 ### Description
 
